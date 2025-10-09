@@ -21,3 +21,4 @@ for i in range(n):
 #j-i+1 độ dài của dãy A
 #v-u+1 độ dài của dãy B 
 # sao cho độ dài của dãy A+B = m
+ 
