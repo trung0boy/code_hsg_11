@@ -22,5 +22,7 @@ for i in range(n):
 #v-u+1 độ dài của dãy B 
 # sao cho độ dài của dãy A+B = m
  
-
+file đồ thị
 https://www.mediafire.com/file/kkht8n0miq4j38b/đồ+thị+điểm+toán+10a1+10a2.zip/file
+đồ thị gegebra
+https://www.geogebra.org/calculator/eaggsnm2
