@@ -1,3 +1,8 @@
+#============================= thư viện ==============================
+
+import math
+
+
 
 #=============================== 01 =================================
 """
@@ -24,7 +29,7 @@ của dãy số B trong dãy số A
 VD: B=[1,2,1], A={1,1,2,1,2,1,3,2,1,2,1] kết quả =3
 
 """
-
+'''
 def lan_lap(listA,listB):
     k=0 #dếm
     for i in range(len(listA) - len(listB) + 1):
@@ -44,6 +49,78 @@ def Count(A,B):
 A=[1,4,2,1,2,4,3,2,4,2,1]
 B=[1,2,1]
 print(Count(A,B))
-
+'''
 
 #=============================== 03 =================================
+"""
+tìm ước số nguyên tố của n kể cả n nếu n cũng là nguyên tố.
+"""
+'''
+def nguyen_to(n):
+    m=[True]*(n+1)
+    m[0]=m[1]= False
+    for i in range(2,int(math.sqrt(n))+1):
+        if m[i]:
+            for j in range(i*i,n+1,i):
+                m[j]=False
+    p=[i for i in range(n+1) if m[i]]
+    return p
+
+def primes(n):
+    ket_qua=[]
+    a=nguyen_to(n)
+    for i in a:
+        if n%i == 0:
+            ket_qua.append(i)
+    return ket_qua
+print(primes(6))
+'''        
+
+
+
+#=============================== 04 =================================
+"tìm trong hai sâu có dãy chung dài nhất"
+'''
+def day_chung(A,B):
+    l_max=0 # độ dài lớn nhất tìm được.
+    i_max=0 #chỉ số đầu tiên cuối cùng của dãy
+    j_max=0 #chỉ số cuối cùng của dãy
+    for i in range(len(A)):
+        for j in range(len(B)):
+            if A[i:j] in B:
+                if (j-i+1) > l_max:
+                    l_max=(j-i)
+                    i_max, j_max = i,j
+    return l_max, i_max, j_max
+
+a="aasdwrs"
+b="jasdfro"
+l,i,j=day_chung(a,b)
+print(l,i,j) #độ dài max, chỉ số đầu, cuối.
+print(l, a[i:j])
+'''
+#=============================== 05 =================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
