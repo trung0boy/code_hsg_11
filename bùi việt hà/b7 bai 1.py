@@ -100,6 +100,81 @@ print(l,i,j) #độ dài max, chỉ số đầu, cuối.
 print(l, a[i:j])
 '''
 #=============================== 05 =================================
+""" kiểm xem số đó có phải nguyên tố ko"""
+
+
+'''
+while True:
+#cách 1
+    def nguyen_to(n): # nếu dùng kiểm 1 số sẽ bị chậm nếu n>1.10**7
+        m=[True]*(n+1)
+        m[0]=m[1]=False
+        for i in range(2,int(math.sqrt(n))+1):
+            if m[i]:
+                for j in range(i*i,n+1,i):
+                    m[j] = False
+        return m[n]
+
+#cách 2
+
+    def nguyento2(n): # có thể đưa ra gần như lập tức
+        if n<2:
+            return False
+        else:
+            for i in range(2,int(math.sqrt(n))+1):
+                if n%i==0:
+                    return False
+        return True
+
+
+    n= int(input())
+    print(nguyento2(n))
+
+'''
+
+
+
+#=============================== 06 =================================
+""" sinh vô hạn số nguyên tố"""
+'''
+def primes(n):
+    if n<2:
+        return False
+    else:
+        for i in range(2, int(math.sqrt(n))+1):
+            if n%i==0:
+                return False
+    return True
+
+i=1
+k=0
+while k<50:
+    if primes(i)==True:
+        print(i)
+        k+=1
+    i+=1
+'''
+
+
+#=============================== 07 =================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#=============================== 08 =================================
 
 
 
@@ -118,6 +193,10 @@ print(l, a[i:j])
 
 
 
+
+
+
+#=============================== 09 =================================
 
 
 
