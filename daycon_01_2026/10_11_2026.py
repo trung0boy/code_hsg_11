@@ -1,4 +1,6 @@
-"bai 1"
+
+"""
+'''bai 1'''
 
 
 import copy
@@ -31,7 +33,7 @@ if d == len(a):
     
         
 
-
+"""
 
 """
 '''
@@ -71,20 +73,26 @@ print(k)
 
 """
 
-"""
+
 '''
 bai 5
 '''
 
 a = [1,2,3,4,5,6,1,1,6,8]
 k = min(a)
+b=list(set(a)) # danh sách được sắp xếp ko trùng lặp
+
+print("min1",min(a),"min2",b[1]) #min
 
 for i in range(len(a)):
     if a[i] == k:
-        print(i+1,end=' ')
-b = sorted(a)
+        print("m1",i+1,end=' ') # vị trí min i = 1,2,3...
+    if a[i] == b[1]:
+        print("m2", i+1)  # vị trí min2 i = 1,2,3...
+print()
 
-"""
+
+
 """
 '''
 bai 7
