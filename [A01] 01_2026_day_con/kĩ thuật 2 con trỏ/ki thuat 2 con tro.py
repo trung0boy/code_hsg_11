@@ -1,3 +1,4 @@
+from collections import Counter
 import sys
 input = sys.stdin.readline
 
@@ -89,10 +90,35 @@ def three_sum():
 
 '''
 Bài 3: Đếm số cặp có hiệu A[j]−A[i]=K
-'''
-
-
-
+Mục tiêu: Sử dụng kỹ thuật Hai con trỏ cùng chiều trên mảng đã sắp xếp.
+•	Thuật toán:
+o	Vì mảng đã sắp xếp, khi tăng j thì hiệu A[j]−A[i] tăng, khi tăng i thì hiệu giảm.
+o	Ta dùng hai con trỏ i và j. Với mỗi i, ta tăng j cho đến khi A[j]−A[i]≥K.
+o	Nếu A[j]−A[i]==K, ta đếm số lượng phần tử bằng A[j] và A[i]
+    (trường hợp mảng có các phần tử trùng nhau). Nếu mảng các phần tử phân biệt, chỉ cần ans += 1.
+•	Bộ Test mẫu:
+o	Input:
+o	6 2
+o	1 2 3 3 4 5
+o	Giải thích: Các cặp là: (1, 3), (1, 3), (2, 4), (3, 5), (3, 5).
+o	Output: 5
+'''             
+def counter_dis():
+    n,k = 6,2
+    A=[1,2,3,3,4,5] 
+    cA=Counter(A) #{value:tan xuat}
+    ans=0 #luu so luong
+    print(cA)
+    if k==0:
+        for i in cA:
+            if cA[i] >1:
+                ans += (cA[i]*(cA[i]-1)) / 2
+    else:
+        for i in cA:
+            if i + k in cA:
+                ans += cA[i]*cA[i+k]
+    print(ans)
+                
 
 
 

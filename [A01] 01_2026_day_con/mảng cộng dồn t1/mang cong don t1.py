@@ -6,9 +6,10 @@ input = sys.stdin.readline
 
 
 def bresic_sum(a,n): # bresic_sum tổng dồn
-    q=[0]*(n+1)
-    for i in range(1,n+1):
-        q[i] = q[i-1] + a[i-1]
+    q=[0]*(n)
+    q[0]=a[0]
+    for i in range(1,n):
+        q[i] = q[i-1] + a[i]
     return q
 
 #   =   =   =
@@ -116,17 +117,42 @@ nhiều lần và chỉ hỏi kết quả cuối cùng.
 '''
 
 
+'''005
+Dạng 4: Kết hợp với Kỹ thuật "Cửa sổ trượt" (Sliding Window)
+•	Bài toán: Cho dãy số A và số K. Tìm đoạn con liên tiếp có độ dài đúng
+    bằng K sao cho tổng của chúng là lớn nhất.
+•	Cách giải: * Tính mảng cộng dồn P.
+o	Duyệt i từ K đến N: Tìm Max(P[i]−P[i−K]).
+•	Ứng dụng: Bài toán "Trồng cây", "Đặt trạm thu phát sóng"
+    (tìm vị trí đặt trạm để phủ được nhiều nhà nhất trong phạm vi K).
+005'''
+
+A4=[2,5,2,2,3,1,3]
+k=3
+p4 = bresic_sum(A4,len(A4)) # 
+ans_max = 0
+ai=aj=0
+
+ansp=0
+print('A4',A4)
+print('p4',p4)
+for r in range(k,len(A4)):
+    ans_max = max(ans_max,  p4[r]-p4[r-k])
+    print(p4[r]-p4[r-k])
+print(ans_max)
+#print(len(A4))
+#print(len(p4))
 
 
 
-
-
-
-
-
-
-
-
+'''
+B1: Số đoạn con có tổng bằng K (Prefix Sum + Dictionary)
+Bài toán: Cho dãy số A và số nguyên K.
+Đếm số lượng đoạn con liên tiếp có tổng đúng bằng K.
+•	Dữ liệu: N≤105,K có thể âm hoặc dương.
+•	Thuật toán: Khi duyệt đến vị trí i có tổng cộng dồn là S, ta cần tìm xem trước đó có bao nhiêu vị trí j mà tổng cộng dồn là S−K. Vì S−(S−K)=K. Ta dùng một Dictionary để lưu tần suất xuất hiện của các tổng trước đó.
+'''
+A5= [12,-5,0,27,-14,8,3,-9,21,-1,6,-18,15,4,-7,19,-3,10,-11,2,25,-36,7,-2,13]
 
 
 
