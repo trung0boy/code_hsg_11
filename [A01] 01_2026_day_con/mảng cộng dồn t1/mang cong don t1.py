@@ -126,7 +126,7 @@ o	Duyệt i từ K đến N: Tìm Max(P[i]−P[i−K]).
 •	Ứng dụng: Bài toán "Trồng cây", "Đặt trạm thu phát sóng"
     (tìm vị trí đặt trạm để phủ được nhiều nhà nhất trong phạm vi K).
 005'''
-
+'''
 A4=[2,5,2,2,3,1,3]
 k=3
 p4 = bresic_sum(A4,len(A4)) # 
@@ -143,7 +143,7 @@ print(ans_max)
 #print(len(A4))
 #print(len(p4))
 
-
+'''
 
 '''
 B1: Số đoạn con có tổng bằng K (Prefix Sum + Dictionary)
@@ -152,7 +152,112 @@ Bài toán: Cho dãy số A và số nguyên K.
 •	Dữ liệu: N≤105,K có thể âm hoặc dương.
 •	Thuật toán: Khi duyệt đến vị trí i có tổng cộng dồn là S, ta cần tìm xem trước đó có bao nhiêu vị trí j mà tổng cộng dồn là S−K. Vì S−(S−K)=K. Ta dùng một Dictionary để lưu tần suất xuất hiện của các tổng trước đó.
 '''
-A5= [12,-5,0,27,-14,8,3,-9,21,-1,6,-18,15,4,-7,19,-3,10,-11,2,25,-36,7,-2,13]
+'''
+'''
+'''
+pos={0:1} #<tong:tan xuat}
+curr = 0
+A=[2,5,2,2,3,3,3]
+count = 0
+k=9
+
+for i in A:
+    curr+=i
+    #print(curr)
+    print(curr-k)
+    if curr-k in pos:
+        count += pos[curr-k] #lay tan xuat của curr
+    pos[curr] = pos.get(curr,0)+1 # thêm và pos 
+print(count)
+'''
+
+"""008
+'''
+Bài 4:  Tìm đoạn con dài nhất có tổng bằng 0.
+'''
+A=[2,5,2,2,-3,-3,-3]
+pos={0:-1} #<tong : index}
+curr = 0
+Max = 0
+
+j = -1
+
+for i in range(len(A)):
+    curr+=A[i]
+    
+    if curr in pos:
+        l = i - pos[curr]
+        if Max < l:
+            Max = l
+            j = i #vi trí cuối
+            print('j',j)
+            
+    else:
+        pos[curr] = i
+        
+        
+if Max > 0:
+    print(Max)
+    print(A[j-Max+1:j+1]) # chỉ số cuối bị -1 
+else:
+    print(-1)
+
+008"""
+
+
+
+A=[2,5,2,5,3,5,3]
+curr = 0
+k=3
+pos = {0:0}
+posi={0:-1} #<giá trị: index >
+count = 0
+
+for i in range(len(A)):
+    curr += A[i]
+    du = curr%k
+    if du in pos:
+        count+=  pos[du]
+    
+    pos[du] = pos.get(du,0)+1
+    print(du)
+#print('sum',count)
+#print('p',pos)
+
+currr = 0
+p = bresic_sum(A,len(A))
+print(A)
+print(p)
+for r in range(len(A)):
+    for l in range(r):
+        if p[r]%k == p[l]%k :
+           print('A',*A[l:r])
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
