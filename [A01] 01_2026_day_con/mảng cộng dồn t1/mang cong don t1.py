@@ -209,8 +209,7 @@ else:
 A=[2,5,2,5,3,5,3]
 curr = 0
 k=3
-pos = {0:0}
-posi={0:-1} #<giá trị: index >
+pos = {0:1}
 count = 0
 
 for i in range(len(A)):
@@ -218,20 +217,20 @@ for i in range(len(A)):
     du = curr%k
     if du in pos:
         count+=  pos[du]
-    
     pos[du] = pos.get(du,0)+1
     print(du)
-#print('sum',count)
-#print('p',pos)
-
+print(count)
+posi={0:-1} #<giá trị: index >
 currr = 0
-p = bresic_sum(A,len(A))
+p = bresic_sum(A,len(A)) #mảng cộng dồn của A len(q)=len(A)
 print(A)
 print(p)
 for r in range(len(A)):
+    if p[r] % k == 0:
+        print('A', *A[0:r+1])
     for l in range(r):
         if p[r]%k == p[l]%k :
-           print('A',*A[l:r])
+           print('A',*A[l+1:r+1])
 
     
 
