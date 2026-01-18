@@ -1,5 +1,5 @@
 def bresic_sum(A,n):
-    p=[0]*(n+1)
+    p=[0]*(n)
     p[0]=A[0]
     for i in range(n):
         p[i] = p[i-1] + A[i]
@@ -31,19 +31,24 @@ n = len(A)
 k = 2*R+1
 max_sum = -1
 ir = -1
-
-if n <= k: # trường hợp len(A) nhỏ hơn phạm vi
+print(p)
+if n <= k: # trường hợp đã bao phủ toàn bộ
     print(sum(A))
     print(n//2+1) #vị trí đặt
 else:
     
-    for i in range(len(A)):
+    for i in range(k,len(A)):
         #max_sum = max( max_sum, p[i] - p[i-k]) # nếu chỉ cần tổng max
         curr = p[i] - p[i-k]
+        print(i-k)
         if curr > max_sum:
             max_sum = curr
-            ir = i-R+1 # nếu cần vị trí đặt trạm
+            ir = i-R # nếu cần vị trí đặt trạm
+            ai=i
     print(max_sum,ir)
+    print(A[ai-k+1:ai+1])
+    
+    
 
 
     
