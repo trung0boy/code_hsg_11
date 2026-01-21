@@ -52,7 +52,29 @@ def sinh(n):
 
 
 
+def sum_digits(n):
+    return sum(int(d) for d in str(n))
 
+def sum_prime_factors(n):
+    s = 0
+    d = 2
+    temp = n
+    while d * d <= temp:
+        while temp % d == 0:
+            s += sum_digits(d)
+            temp //= d
+        d += 1
+    if temp > 1:
+        s += sum_digits(temp)
+    return s
+
+def is_smith(n):
+    if is_primes(n): return False # Số Smith không được là số nguyên tố
+    return sum_digits(n) == sum_prime_factors(n)
+
+n = int(input("Nhập n: "))
+if is_smith(n): print(f"{n} là số Smith")
+else: print(f"{n} không phải số Smith")
 
 
 
