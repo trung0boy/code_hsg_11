@@ -1,72 +1,62 @@
-
-'''001
-#Dạng 1: Thuật toán Quay lui (Backtracking)
+#bài 1 sinh hoán vị của tập n
+"""001
 def backtrack(k):
+
     if k == n+1:
         print(res[1:])
         return
-    for i in range(1,n+1):
+    for i in range (1,n+1):
         if not user[i]:
-            res[k]=i
-            user[i] = True
+            res[k] = i
+            user[i] =True
             backtrack(k+1)
-            user[i] = False
-    
+            user[i] =False
 
-n=int(input())
-res=[0]*(n+1)
-user=[False]*(n+1)
+n = int(input())
+res = [0]*(n+1)
+user = [False]*(n+1)
 backtrack(1)
-001'''
+001"""
 
-#Bài 2: Bài toán Tổ hợp (Sinh tập con K phần tử)
-#Đề bài: Cho tập hợp {1,2,...,N}. Liệt kê tất cả các tập con có đúng K phần tử.
-#Thuật toán: Để tránh trùng lặp, ta quy định các
-#phần tử trong tập con phải được chọn theo thứ tự tăng dần (x[k]>x[k−1]).
-#Giới hạn chọn: Phần tử thứ k (x[k])
-#có giá trị nhỏ nhất là x[k−1]+1 và lớn nhất là N−K+k.
+# bài 2 sinh tổ hợp với K phần tử
+"""002
+def sinh_to_hop (k):
 
-
-def to_hop(k):
-    for i in range(res[k-1]+1, n - K + k+1):
+    for i in range(res[k-1]+1, n - K + k +1):
         res[k] = i
-        if k==K:
+        if k ==K:
             print(res[1:])
-            return
         else:
-            to_hop(k+1)
+            sinh_to_hop (k+1)
+            
+n,K= map(int,input().split())
+res=[0]*(K+1)
+sinh_to_hop (1)
+002"""
 
+#bài toán xếp hậu
 
-n,K = map(int,input().split())
-res = [0]*(K+1)
+def n_queens(i):
+    global count
+    for j in range(1,n+1):
+        if not cot[j] and not d1[i-j+n] and not d2[i+j]:
+            res[i] = j
+            cot[j] = d1[i-j+n] = d2[i+j] =True
+            if i == n:
+                count+=1
+                print(res[1:])
+            else:
+                n_queens(i+1)
+            cot[j] = d1[i-j+n] = d2[i+j] =False
 
-to_hop(1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+n =int(input())
+count=0
+res = [0]*(n+1)
+cot = [False]*(n+1)
+d1 = [False]*(2*n+1)
+d2 = [False]*(2*n+1)
+n_queens(1)
+print(count)
 
 
 
