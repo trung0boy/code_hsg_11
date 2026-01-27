@@ -31,7 +31,7 @@ def spf_primes(n): #gán bội của nguyên tố thành nguyên tố nhỏ nh�
                     fps[j] = i
     return fps
 
-def factorzize(n):  # phân tích thừa số
+def factorzize1(n):  # phân tích thừa số
     #start = time.time()
     pos = {}
     spf = spf_primes(n)
@@ -44,5 +44,15 @@ def factorzize(n):  # phân tích thừa số
     print('*'.join(f'{k}^{v}'for k,v in pos.items()))
     return
 
-N = int(input())
-factorzize(N)
+#N = int(input())
+#factorzize(N)
+#factorzize2 tốt hơn nhiều so với factorzize1 vì có thể bỏ qua việc duyệt nguyên tố
+def factorzize2(n):
+    k=2
+    pos={}
+    while n>1:
+        while n%k !=0:
+            k+=1
+        pos[k] = pos.get(k,0)+1
+        n//=k
+    return pos
