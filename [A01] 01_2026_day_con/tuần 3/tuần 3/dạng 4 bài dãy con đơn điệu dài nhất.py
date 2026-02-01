@@ -28,7 +28,7 @@ print(pos_value)
 # ta thêm một vòng lặp nữa để lấy hết số lớn nhất đó
 # sau khi đã lấy ta gán độ dài lớn nhất tại vị trí đó trong danh sách thành -1 đã dùng
 
-while idx in pos: # nếu độ dài lớn nhất đó vẫn tòn tại trong pox ta vẫn xét
+while max_leght in pos: # nếu độ dài lớn nhất đó vẫn tòn tại trong pox ta vẫn xét
     i =pos.index(max(pos))
     pos_value = [A[idx]] # pos lưu value # lưu luân giá trị cuối. sau đó chỉ cần thêm A[i-1]
     Ai = pos[i]
