@@ -127,4 +127,62 @@ def mecung_bfs(matrix,n,m,start,end):
 
 
 
+
+"""
+chu trình
+"""
+def has_cycle(u, p, graph, visited):
+    visited[u] = True
+    for v in graph[u]:
+        if not visited[v]:
+            if has_cycle(v, u, graph, visited):
+                return True
+        elif v != p: # v đã thăm và không phải cha của u
+            return True
+    return False
+
+# Trong hàm main:
+# check = False
+# for i in range(1, n + 1):
+#     if not visited[i]:
+#         if has_cycle(i, 0, graph, visited):
+#             check = True; break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          
