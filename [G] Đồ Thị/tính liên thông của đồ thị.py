@@ -149,7 +149,7 @@ def slove3():
     visited=[False]*(n+1)
     for i in range(1,n+1):
         if not visited[i]:
-            if has_cycle(u, p, graph, visited):
+            if has_cycle(u, 0, graph, visited):
                 print('y')
                 break
             else:
