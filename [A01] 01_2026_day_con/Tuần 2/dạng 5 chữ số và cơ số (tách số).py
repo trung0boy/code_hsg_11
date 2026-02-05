@@ -30,7 +30,8 @@ def kiemtra_prime_sum(n):
 #5.1
 '''
     Số siêu nguyên tố (Super Prime)
-Thuật toán: Thay vì kiểm tra từng số xem có phải siêu nguyên tố không (rất chậm), ta dùng phương pháp Loang (BFS) hoặc Đệ quy (DFS) để "xây dựng" số siêu nguyên tố từ trái sang phải.
+Thuật toán: Thay vì kiểm tra từng số xem có phải siêu nguyên tố không (rất chậm), ta dùng phương pháp Loang (BFS) hoặc Đệ quy (DFS) để "xây dựng"
+số siêu nguyên tố từ trái sang phải.
 Bắt đầu với các số nguyên tố có 1 chữ số: 2, 3, 5, 7.
 Với mỗi số đã có, ta thử thêm một chữ số lẻ {1, 3, 7, 9} vào bên phải.
 Nếu số mới tạo thành là số nguyên tố, ta tiếp tục quá trình cho đến khi đạt được số chữ số yêu cầu.

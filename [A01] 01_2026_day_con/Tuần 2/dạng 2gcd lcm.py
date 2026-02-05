@@ -67,9 +67,5 @@ def so_cap_tm(A,K,S):
 
 
 
-
-
-
-
     
 
