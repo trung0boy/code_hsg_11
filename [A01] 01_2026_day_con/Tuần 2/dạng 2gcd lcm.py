@@ -1,3 +1,5 @@
+import math
+
 #dạng 2
 # tìm cặp (a,b) khi biết G-gcd và L-lcm
 '''
@@ -47,13 +49,42 @@ def so_cap_tm(A,K,S):
 
 
 
+def analyze_n(n):  # phân tích thừa số nguyên tố và đếm ước
+    d_count = 1 # số lượng ước
+    s_sum = 1 # tổng ước
+    i = 2
+    temp = n
+    while i*i <= temp:
+        p_pow =0
+        p_sum =1
+        p_val = 1
+        while i%n==0:
+            p_pow += 1
+            p_val *= i
+            p_sum += p_val
+            temp //= i
+        d_count *= (p_pow+1)
+        s_sum *= p_sum
+    i+=1
+    if temp>1:
+        d_count *=2
+        s_sum *= (1+temp)
+    return d_count, s_sum
+        
 
 
 
 
-
-
-
+def tim(G,L):
+    if L%L !=: return False
+    xy = L//G
+    res = []
+    for x in range(1,int(xy*0.5)+1):
+        if xy%x == 0:
+            y = xy%x
+            if math.gcd(x,y) ==1:
+                res.append((G*x,G*y))
+    return res
 
 
 

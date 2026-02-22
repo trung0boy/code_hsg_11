@@ -49,7 +49,7 @@ def sieu_nguyen_to(number, leght, n='do_dai_yeu_cau'):
 def sinh(n):
     for star in [2,3,5,7]:
          return(sieu_nguyen_to(star, 1, n))
-    
+
 
 
 
