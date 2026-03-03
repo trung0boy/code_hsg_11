@@ -1,5 +1,7 @@
 import sys
 import random
+import numpy
+import math
 '''
 
 def randomA(k):
@@ -22,8 +24,8 @@ k = 1000
 parent=[0]*(n+1)
 
 for _ in range(k):
-    l = random.randint(1,n)
-    r = random.randint(l+1,n)
+    l = random.randint(1,n-3)
+    r = random.randint(l+1,n-1)
     #l,r = map(int,sys.stdin.readline().split())
     parent[l] += 1
     parent[r+1] -= 1
@@ -33,11 +35,6 @@ Q =[]
 for i in range(1000):
     Q.append(random.randint(1,n))
 #print(parent)
+s =numpy.cumsum(parent)
 
-for i in range(1,n+1):
-    parent[i] = parent[i-1]+ parent[i]
 print("xong")
-'''
-for q in Q:
-    print(parent[q])
-'''
