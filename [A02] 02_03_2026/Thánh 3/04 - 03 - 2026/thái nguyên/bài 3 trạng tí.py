@@ -42,7 +42,7 @@ for i in range(q):
     print(nmod9(r) - nmod9(l-1))
     
 '''
-quy luật luân lặp lại từ 1 đến 9: 45 + 1 đến 9
+quy luật luân lặp lại từ 1 đến 9: 45
 
 nmod9
 công thức
