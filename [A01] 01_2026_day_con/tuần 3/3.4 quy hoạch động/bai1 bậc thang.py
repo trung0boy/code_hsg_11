@@ -15,10 +15,10 @@ def bac_thang(n,A):
         else:
             xi = (x0+x1+x2)% (10**6+7)
         x0,x1,x2 = x1,x2,xi # đẩy kết quả đã tính xuống 1 bặc
-        print(x0,x1,x2,xi)
+        #print(x0,x1,x2,xi)
             
     ed = time.time()
-    print(x2)
+    #print(x2)
     print(ed - st)
     
        
