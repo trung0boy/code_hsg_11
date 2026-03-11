@@ -1,5 +1,8 @@
 import sys
 
+sys.stdin = open('CATDAY.INP','r')
+input = sys.stdin.readline
+
 
 
 n,m = map(int,input().split())
@@ -16,5 +19,10 @@ for i in range(n+1):
             break
         mx = max(mx,A[j-1])
         dp[i] = min(dp[i], dp[j-1] + mx)
-print(dp[n])
+
+        
+if dp[n] == float('inf'):
+    print(-1)
+else:
+    print(dp[n])
     
