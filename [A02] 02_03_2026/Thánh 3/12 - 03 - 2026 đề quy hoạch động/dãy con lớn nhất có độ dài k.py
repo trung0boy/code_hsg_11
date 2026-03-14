@@ -13,4 +13,4 @@ A=list(map(int,sys.stdin.readline().split()))
 p = prefix(A)
 
 for r in range(k,n+1):
-    
+    ans = max(ans(p    
