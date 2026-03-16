@@ -1,7 +1,7 @@
 import sys
 import copy
-sys.stdin = open('x.dothikhopcau.inp','r')
-input = sys.stdin.readline
+#sys.stdin = open('x.dothikhopcau.inp','r')
+#input = sys.stdin.readline
 
 def dfs_danh_dau(u,visited,graph):
     visited[u] = 1

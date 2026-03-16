@@ -12,7 +12,7 @@ ans = 0
 s = sum(A[:k])
 for i in range(n-k+1):
     B = sorted(A[i:i+k])
-    mid = B[k//2]
+    mid = B[(k-1)//2]
     ansK = 0
     for x in B:
         ansK += abs( x - mid)

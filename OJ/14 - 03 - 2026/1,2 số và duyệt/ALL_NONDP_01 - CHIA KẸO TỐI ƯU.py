@@ -18,6 +18,15 @@ while L<R:
         R-=1
 print(ans)
 
+
+
+
+
+
+
+
+
+
 '''
 1️⃣ Cắt gỗ
 

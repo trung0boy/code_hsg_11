@@ -21,6 +21,12 @@ for i in range(n-1,-1,-1):
     leght += 1
 print(leght)
 
+
+
+
+
+
+
 '''
 
 Test case #1:	AC	[0,023s,	11,13 MB]	(1/1)
