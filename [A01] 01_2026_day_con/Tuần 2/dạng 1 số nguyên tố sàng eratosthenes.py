@@ -23,7 +23,7 @@ def miller_rabin(n): # kiểm tra
         s+=1
     def check(a):
         x=pow(a,d,n)
-        if x == 1 or x = n-1:
+        if x == 1 or x == n-1:
             return True
         for _ in range(s-1):
             x =(x*x)%n

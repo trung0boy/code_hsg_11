@@ -6,11 +6,7 @@ def to_hop(k):
             print(A[1:])
         else:
             to_hop(k+1)
-        
-
-
-
-
+       
 
 n,  K = map(int,input().split())
               

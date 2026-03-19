@@ -9,5 +9,6 @@ if x <= n:
             count+=1
     comb = math.comb(count,x) #nCk
     print(comb)
-    else:
+else:
+    print(-1)
         
