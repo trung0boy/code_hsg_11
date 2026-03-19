@@ -1,64 +1,17 @@
 import sys
-sys.setrecursionlimit(10**9)
-def eratosthene(n):
-    m = [True]*(n+1)
-    m[0]=m[1]=False
-    for i in range(2,int(n**0.5)+1):
-        if m[i]:
-            for j in range(i*i,n+1,i):
-                m[j] = False
-    return set([i for i in range(2,n+1) if m[i]])
-
-
+import math
+from collections import *
 
 n = int(sys.stdin.readline())
 A = list(map(int,sys.stdin.readline().split()))
+A = list(Counter(A).items())
+count = 0
 
-a = max(A)
-nguyen_to = eratosthene(a)
-
-cnt = 0
-for x in A:
-    if x not in nguyen_to:
-        cnt += 1
-        
-Cn = (n*(n-1))//2
-Ck = (cnt*(cnt-1))//2
-print(Cn - Ck )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for i in range(len(A)):
+    for j in range(i+1, len(A)):
+        if math.gcd(  A[i][0], A[j][0]  ) == 1:
+            #print(A[i][0], A[j][0], A[i][1], A[j][1])
+            count += A[i][1]*A[j][1]
+print(count)
 
 
