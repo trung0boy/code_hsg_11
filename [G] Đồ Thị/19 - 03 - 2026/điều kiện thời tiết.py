@@ -1,81 +1,8 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import sys
-sys.setrecursionlimit(100000)
-
-def slove():
-    n = int(sys.stdin.readline())
-    m = int(sys.stdin.readline())
-    graph =[[] for _ in range(n+1)]
-    for _ in range(m):
-        u,v = map(int,sys.stdin.readline().split())
-        graph[u].append(v)
-        graph[v].append(u)
-
-    num = [0]*(n+1) # thứ tự vào.
-    low = [0]*(n+1) # cũ nhất có thể về.
-    timer = 0 # lần lượt đỉnh.
-
-    ans = 0
-
-    def dfs(u,p):
-        nonlocal timer, ans
-        timer += 1
-        low[u] = low[u] = timer
-        size = 1
-        for v in graph[u]:
-            if v == p:
-                continue
-            if num[v]:
-                low[u] = min(low[u],num[v])
-            else:
-                child_size = dfs(v,u)
-                size += child_size
-                
-                low[u] = min(low[u], low[v])
-                if low[v] > num[u]:
-                    ans += child_size*(n - child_size)
-                
-        return size
-    dfs(1,-1)
-    print(ans)
-    print(ans)
-if __name__ == "__main__":
-    slove()
-
-'''
+"""
 import sys
 
 # Tăng giới hạn đệ quy để tránh lỗi với đồ thị sâu
-#sys.setrecursionlimit(100)
+sys.setrecursionlimit(100)
 
 def solve():
     # Đọc dữ liệu
@@ -136,7 +63,122 @@ if __name__ == "__main__":
 
 
 
-'''
+
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import sys
+sys.setrecursionlimit(100000)
+input = sys.stdin.readline
+
+n = int(input())
+m = int(input())
+graph =[[] for _ in range(n+1)]
+for i in range(m):
+    u,v = map(int,input().split())
+    graph[u].append((v,i))
+    graph[v].append((u,i))
+
+num = [0]*(n+1) # thứ tự vào.
+low = [0]*(n+1) # cũ nhất có thể về.
+timer = 0 # lần lượt đỉnh.
+
+ans = 0
+
+def dfs(u,p):
+    global timer, ans
+    timer += 1
+    low[u] = num[u] = timer
+    size = 1
+    for v,e in graph[u]:
+        if e == p:
+            continue
+        
+        if not num[v]:
+            child_size = dfs(v,e)
+            size += child_size
+                
+            low[u] = min(low[u], low[v])
+            if low[v] > num[u]:
+                ans += child_size*(n - child_size)
+        else:
+            low[u] = min(low[u],num[v])
+                
+    return size
+dfs(1,-1)
+print(ans)
 
 
 
