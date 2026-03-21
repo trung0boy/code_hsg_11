@@ -13,10 +13,6 @@ for _ in range(m):
 
 
 
-
-
-
-
 num =[0]*(n+1)
 low =[0]*(n+1)
 

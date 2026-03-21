@@ -156,26 +156,27 @@ low = [0]*(n+1) # cũ nhất có thể về.
 timer = 0 # lần lượt đỉnh.
 
 ans = 0
-
+cnt = 0
 def dfs(u,p):
-    global timer, ans
-    timer += 1
+    global timer, ans, cnt
+    timer+=1
     low[u] = num[u] = timer
     size = 1
-    for v,e in graph[u]:
-        if e == p:
+    
+    for v, e in graph[u]:
+        if p == e:
             continue
-        
         if not num[v]:
             child_size = dfs(v,e)
             size += child_size
-                
-            low[u] = min(low[u], low[v])
+            low[u] = min(low[u],low[v])
+
+            # xét xem đó có phải cầu không
             if low[v] > num[u]:
-                ans += child_size*(n - child_size)
+                ans += child_size*(n-child_size) # nhân 2 bên của đồ thị
+                cnt+=1 # đếm số cầu
         else:
             low[u] = min(low[u],num[v])
-                
     return size
 dfs(1,-1)
 print(ans)
