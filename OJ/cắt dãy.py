@@ -26,3 +26,4 @@ if dp[n] == float('inf'):
 else:
     print(dp[n])
     
+    
